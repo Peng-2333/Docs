@@ -24,5 +24,11 @@ language = 'zh_CN'
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+html_theme = 'furo'
 html_static_path = ['_static']
+
+
+# 包含自定义 CSS 文件
+# html_css_files = [
+#     'custom.css',
+# ]
