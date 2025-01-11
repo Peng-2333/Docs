@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -241,7 +241,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -249,9 +249,11 @@
         <article role="main" id="furo-main-content">
           <section id="id1">
 <h1>小毛病<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
-<p>### 通过添加 .nojekyll 文件解决 GitHub Pages 的问题</p>
+<section id="nojekyll-github-pages">
+<h2>通过添加 .nojekyll 文件解决 GitHub Pages 的问题<a class="headerlink" href="#nojekyll-github-pages" title="Link to this heading">¶</a></h2>
 <p>在使用 GitHub Pages 部署 Sphinx 文档时，默认启用了 Jekyll，这会导致以 <cite>_</cite> 开头的目录（如 <cite>_static</cite>）被忽略，导致资源文件无法加载。为了解决这个问题，我们需要在部署目录中添加一个空的 <cite>.nojekyll</cite> 文件，禁用 Jekyll。</p>
-<p>#### 步骤：</p>
+<section id="id2">
+<h3>步骤：<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p><strong>创建 `.nojekyll` 文件</strong>：
 在 <cite>docs</cite> 目录下创建一个名为 <cite>.nojekyll</cite> 的空文件。</p></li>
@@ -346,6 +348,8 @@ xcopy <span class="s2">&quot;</span><span class="nv">%BUILDDIR%</span><span clas
 </pre></div>
 </div>
 </section>
+</section>
+</section>
 
         </article>
       </div>
@@ -382,8 +386,30 @@ xcopy <span class="s2">&quot;</span><span class="nv">%BUILDDIR%</span><span clas
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">小毛病</a><ul>
+<li><a class="reference internal" href="#nojekyll-github-pages">通过添加 .nojekyll 文件解决 GitHub Pages 的问题</a><ul>
+<li><a class="reference internal" href="#id2">步骤：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
