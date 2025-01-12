@@ -44,30 +44,93 @@ if errorlevel 1 (
     exit /b 1
 )
 
+REM --------------------------
+REM 以下为新增功能（处理 CNAME 文件）
+REM --------------------------
 
+echo.
+echo ===========================
+echo Checking CNAME before deleting "%TARGETDIR%"...
+echo ===========================
+echo.
 
-
-REM 以下为新增功能
-
-REM Step 1: 在 build/html 目录中创建 .nojekyll 文件
-echo Creating .nojekyll file...
-echo. > "%BUILDDIR%\html\.nojekyll"
+REM 如果 docs 目录存在，先检查 CNAME 文件的情况
+if exist "%TARGETDIR%" (
+    if exist "%TARGETDIR%\CNAME" (
+        echo Found CNAME in %TARGETDIR% folder.
+        if exist "%~dp0CNAME" (
+            echo WARNING: Root directory already has a CNAME file. Skipping extraction from %TARGETDIR%.
+        ) else (
+            echo Extracting CNAME from %TARGETDIR% to root folder...
+            copy /y "%TARGETDIR%\CNAME" "%~dp0" >NUL
+            echo Extraction completed.
+        )
+    ) else (
+        echo CNAME not found in %TARGETDIR% folder.
+        if exist "%~dp0CNAME" (
+            echo WARNING: Root directory already has a CNAME file. Skip creating a new one.
+        ) else (
+            echo Creating new CNAME file in root folder: docs.peng2333.com
+            echo docs.peng2333.com > "%~dp0CNAME"
+            echo CNAME file created in root folder.
+        )
+    )
+) else (
+    echo WARNING: "%TARGETDIR%" folder does not exist.
+    echo Checking root-level CNAME file...
+    if exist "%~dp0CNAME" (
+        echo WARNING: Root directory already has a CNAME file. Skip creating a new one.
+    ) else (
+        echo Creating new CNAME file in root folder: docs.peng2333.com
+        echo docs.peng2333.com > "%~dp0CNAME"
+        echo CNAME file created in root folder.
+    )
+)
 
 REM Step 2: 删除根目录下现有的 /docs 目录（如果存在）
 if exist "%TARGETDIR%" (
-    echo Deleting existing docs directory...
+    echo.
+    echo Deleting existing %TARGETDIR% directory...
     rmdir /s /q "%TARGETDIR%"
 )
 
 REM Step 3: 拷贝 build/html 目录下的所有内容到根目录的 /docs 目录
-echo Copying build/html to docs...
+echo.
+echo Copying "%BUILDDIR%\html" to "%TARGETDIR%"...
 xcopy "%BUILDDIR%\html\*" "%TARGETDIR%\" /E /I /H /Y >NUL
 
-REM Step 4: 删除 build/html 目录以节省空间
-echo Deleting build/html directory...
+REM Step 4: 为 GitHub Pages 创建（或刷新）.nojekyll 文件
+echo.
+echo Creating .nojekyll file in %TARGETDIR%...
+echo. > "%TARGETDIR%\.nojekyll"
+
+REM 复制根目录的 CNAME 到新的 docs 目录
+echo.
+echo Copying root CNAME to %TARGETDIR% folder...
+if exist "%~dp0CNAME" (
+    copy /y "%~dp0CNAME" "%TARGETDIR%\CNAME" >NUL
+    echo Root CNAME file copied to %TARGETDIR%.
+) else (
+    echo WARNING: No CNAME file found in root folder, skipping.
+)
+
+REM Step 5: 删除 build/html 目录以节省空间
+echo.
+echo Deleting "%BUILDDIR%\html" directory...
 rmdir /s /q "%BUILDDIR%\html"
 
+echo.
 echo Deployment completed successfully.
+
+REM 结束后删除根目录的CNAME文件
+echo.
+echo Removing root-level CNAME...
+if exist "%~dp0CNAME" (
+    del /f /q "%~dp0CNAME"
+    echo Root-level CNAME has been deleted.
+) else (
+    echo No root-level CNAME found, skipping delete.
+)
 
 REM 以上为新增功能
 
