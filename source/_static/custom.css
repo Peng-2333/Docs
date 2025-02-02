@@ -3,15 +3,103 @@
 /* custom.css */
 
 /* 设置全局字体 */
+/* 
 body {
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
-}
+} */
 
-/* 你也可以根据需要针对特定元素设置字体 */
+/*
 h1, h2, h3, h4, h5, h6 {
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 
 p, li, span, div, a {
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+} */
+
+
+
+/* 2025年2月1日更新新的字体 */
+/* custom.css */
+
+/* 设置全局字体：默认使用微软雅黑字体 */
+body, html {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
+
+/* 针对英文的字体设置 */
+html[lang="en"] body {
+    font-family: "Consolas", "Courier New", monospace !important;
+}
+
+/* 设置标题字体为微软雅黑 */
+html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
+    font-family: inherit !important;  /* 继承 body 的字体 */
+}
+
+/* 设置段落、列表、链接等元素的字体 */
+html body p, html body li, html body span, html body div, html body a {
+    font-family: inherit !important;  /* 继承 body 的字体 */
+}
+
+/* 针对中文的标题字体设置 */
+html[lang="zh"] body h1, html[lang="zh"] body h2, html[lang="zh"] body h3, html[lang="zh"] body h4, html[lang="zh"] body h5, html[lang="zh"] body h6 {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
+}
+
+/* 针对英文的标题字体设置 */
+html[lang="en"] body h1, html[lang="en"] body h2, html[lang="en"] body h3, html[lang="en"] body h4, html[lang="en"] body h5, html[lang="en"] body h6 {
+    font-family: "Consolas", "Courier New", monospace !important;
+}
+
+/* 设置不同字体的大小 */
+html body h1 {
+    font-size: 2em;
+}
+
+html body h2 {
+    font-size: 1.75em;
+}
+
+html body h3 {
+    font-size: 1.5em;
+}
+
+html body h4 {
+    font-size: 1.25em;
+}
+
+html body h5 {
+    font-size: 1.1em;
+}
+
+html body h6 {
+    font-size: 1em;
+}
+
+html body p, html body li, html body span, html body div, html body a {
+    font-size: 1em;
+}
+
+/* 调整中文段落的字体大小 */
+html[lang="zh"] body p, html[lang="zh"] body li, html[lang="zh"] body span, html[lang="zh"] body div, html[lang="zh"] body a {
+    font-size: 1.2em !important; /* 中文段落可以稍微增大字体 */
+}
+
+/* 调整英文段落的字体大小 */
+html[lang="en"] body p, html[lang="en"] body li, html[lang="en"] body span, html[lang="en"] body div, html[lang="en"] body a {
+    font-size: 1em !important; /* 英文段落保持默认大小 */
+}
+
+/* 给代码块设置字体 */
+code, pre {
+    font-family: "Consolas", "Courier New", monospace !important;
+    font-size: 1em !important;
+}
+
+
+
+
+
+
+

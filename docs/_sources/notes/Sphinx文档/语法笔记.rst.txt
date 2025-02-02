@@ -1,0 +1,88 @@
+reStructuredText语法笔记
+##########################
+
+章节分隔符号
+************
+
+一般来说，reST语法不规定什么符号作为几级标题，不过可以参考python文档的约定俗成的习惯顺序字符进行使用。
+
+| Normally, there are no heading levels assigned to certain characters as the structure is determined from the succession of headings.
+| 一般来说，没有标题级别被分配给确定的字符，因为(目录)结构被标题的连续(继承)性所确定。
+
+| However, for the Python documentation, here is a suggested convention:
+| 但是，对于Python文档，这里是一个建议的惯例:
+
+推荐的标题字符使用：
+======================
+| ``#``, with overline, for parts（部分/篇章）
+| ``*``, with overline, for chapters（章节）
+| ``=``, for sections（节）
+| ``-``, for subsections（小节）
+| ``^``, for subsubsections（再小节/小小节）
+| ``"``, for paragraphs（段落）
+
+
+引文和代码块
+*************
+
+使用缩进一段或几段文本来实现类似 markdown 文档中 ``>`` 的效果。
+
+可以选择这两种实现方式：
+
+使用 ``::`` 将文本块转换为代码块，保留源文本格式
+================================================
+
+.. code-block:: rst
+    
+    This is a normal text paragraph. The next paragraph is a code sample::
+
+        It is not processed in any way, except
+        that the indentation is preserved.
+
+
+        It can span multiple lines.
+
+    This is a normal text paragraph again.
+
+其渲染结果为:
+
+This is a normal text paragraph. The next paragraph is a code sample::
+
+    It is not processed in any way, except
+    that the indentation is preserved.
+
+
+    It can span multiple lines.
+
+This is a normal text paragraph again.
+
+不使用 ``::`` 将文本块作为普通段落处理
+======================================
+
+.. code-block:: rst
+
+    This is a normal text paragraph. The next paragraph is a code sample
+
+        It is not processed in any way, except
+        that the indentation is removed.
+
+
+        It can span multiple lines.
+
+    This is a normal text paragraph again.
+
+其渲染结果为:
+
+This is a normal text paragraph. The next paragraph is a code sample
+
+    It is not processed in any way, except
+    that the indentation is removed.
+
+
+    It can span multiple lines.
+
+This is a normal text paragraph again.
+
+
+
+

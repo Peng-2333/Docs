@@ -15,8 +15,8 @@ Docs documentation
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: 文档总目录:
 
 
-   notes/notes
+   notes/notes.rst
 

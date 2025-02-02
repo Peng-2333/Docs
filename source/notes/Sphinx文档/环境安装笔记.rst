@@ -1,0 +1,74 @@
+环境安装笔记
+==============
+
+关于使用VScode实时预览reSturcturedText文档的配置
+------------------------------------------------
+
+通过安装 ``Esbonio`` 插件即可实现实时预览，语法纠错，文档间关系构建提醒等等。
+
+值得注意，此插件安装之后需要 **指定一个python环境**，然后VScode右下角会提示运行一个依赖库的安装任务，点击安装之后，\
+稍后在控制台会打印类似如下消息: 
+
+.. 下面这个关键字可以填写console和batch
+.. code-block:: console 
+
+    *  Executing task: C:\Users\Peng2333\.conda\envs\Sphinx\python.exe -m pip install esbonio>=0.12.0 
+
+    Collecting esbonio>=0.12.0
+    Downloading esbonio-0.16.5-py3-none-any.whl.metadata (4.7 kB)
+    Requirement already satisfied: sphinx in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from esbonio>=0.12.0) (8.1.3)
+    Collecting platformdirs (from esbonio>=0.12.0)
+    Downloading platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+    Collecting pygls<2,>=1.1.0 (from esbonio>=0.12.0)
+    Downloading pygls-1.3.1-py3-none-any.whl.metadata (4.7 kB)
+    Collecting pyspellchecker (from esbonio>=0.12.0)
+    Downloading pyspellchecker-0.8.2-py3-none-any.whl.metadata (9.4 kB)
+    Collecting cattrs>=23.1.2 (from pygls<2,>=1.1.0->esbonio>=0.12.0)
+    Downloading cattrs-24.1.2-py3-none-any.whl.metadata (8.4 kB)
+    Collecting lsprotocol==2023.0.1 (from pygls<2,>=1.1.0->esbonio>=0.12.0)
+    Downloading lsprotocol-2023.0.1-py3-none-any.whl.metadata (2.2 kB)
+    Collecting attrs>=21.3.0 (from lsprotocol==2023.0.1->pygls<2,>=1.1.0->esbonio>=0.12.0)
+    Downloading attrs-24.3.0-py3-none-any.whl.metadata (11 kB)
+    Requirement already satisfied: sphinxcontrib-applehelp>=1.0.7 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.0.0)
+    Requirement already satisfied: sphinxcontrib-devhelp>=1.0.6 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.0.0)
+    Requirement already satisfied: sphinxcontrib-htmlhelp>=2.0.6 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.1.0)
+    Requirement already satisfied: sphinxcontrib-jsmath>=1.0.1 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (1.0.1)
+    Requirement already satisfied: sphinxcontrib-qthelp>=1.0.6 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.0.0)
+    Requirement already satisfied: sphinxcontrib-serializinghtml>=1.1.9 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.0.0)
+    Requirement already satisfied: Jinja2>=3.1 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (3.1.5)
+    Requirement already satisfied: Pygments>=2.17 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.18.0)
+    Requirement already satisfied: docutils<0.22,>=0.20 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (0.21.2)
+    Requirement already satisfied: snowballstemmer>=2.2 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.2.0)
+    Requirement already satisfied: babel>=2.13 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.16.0)
+    Requirement already satisfied: alabaster>=0.7.14 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (1.0.0)
+    Requirement already satisfied: imagesize>=1.3 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (1.4.1)
+    Requirement already satisfied: requests>=2.30.0 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (2.32.3)
+    Requirement already satisfied: packaging>=23.0 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (24.2)
+    Requirement already satisfied: colorama>=0.4.6 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from sphinx->esbonio>=0.12.0) (0.4.6)
+    Requirement already satisfied: MarkupSafe>=2.0 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from Jinja2>=3.1->sphinx->esbonio>=0.12.0) (3.0.2)
+    Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from requests>=2.30.0->sphinx->esbonio>=0.12.0) (3.4.1)
+    Requirement already satisfied: idna<4,>=2.5 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from requests>=2.30.0->sphinx->esbonio>=0.12.0) (3.10)
+    Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from requests>=2.30.0->sphinx->esbonio>=0.12.0) (2.3.0)
+    Requirement already satisfied: certifi>=2017.4.17 in c:\users\peng2333\.conda\envs\sphinx\lib\site-packages (from requests>=2.30.0->sphinx->esbonio>=0.12.0) (2024.12.14)
+    Downloading esbonio-0.16.5-py3-none-any.whl (170 kB)
+    Downloading pygls-1.3.1-py3-none-any.whl (56 kB)
+    Downloading lsprotocol-2023.0.1-py3-none-any.whl (70 kB)
+    Downloading platformdirs-4.3.6-py3-none-any.whl (18 kB)
+    Downloading pyspellchecker-0.8.2-py3-none-any.whl (7.1 MB)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 8.2 MB/s eta 0:00:00
+    Downloading cattrs-24.1.2-py3-none-any.whl (66 kB)
+    Downloading attrs-24.3.0-py3-none-any.whl (63 kB)
+    Installing collected packages: pyspellchecker, platformdirs, attrs, cattrs, lsprotocol, pygls, esbonio
+    Successfully installed attrs-24.3.0 cattrs-24.1.2 esbonio-0.16.5 lsprotocol-2023.0.1 platformdirs-4.3.6 pygls-1.3.1 pyspellchecker-0.8.2
+    *  Terminal will be reused by tasks, press any key to close it. 
+
+
+
+This is a normal text paragraph. The next paragraph is a code sample::
+
+   It is not processed in any way, except
+   that the indentation is removed.
+
+   It can span multiple lines.
+
+This is a normal text paragraph again.

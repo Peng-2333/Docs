@@ -9,7 +9,7 @@
 project = 'Docs'
 copyright = '2025, Peng2333'
 author = 'Peng2333'
-release = '0.0.1.250111.01'
+release = '0.0.1.250123.01'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -28,7 +28,7 @@ html_theme = 'furo'
 html_static_path = ['_static']
 
 
-# 包含自定义 CSS 文件
-# html_css_files = [
-#     'custom.css',
-# ]
+# 配置 Sphinx 使用自定义的 CSS 文件
+html_css_files = [
+    'custom.css',  # 这里是相对于 `/_static` 目录的路径
+]
