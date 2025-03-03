@@ -5,8 +5,22 @@
 
 
 .. toctree::
-   :maxdepth: 2
-   :caption: 笔记目录：
+    :maxdepth: 2
+    :caption: 笔记目录：
+    :numbered: 
+    :glob:
+    :includehidden:
 
-   前后端/frontend_backend.rst
-   
+    Sphinx-reST文档/环境安装笔记.rst
+    Sphinx-reST文档/语法笔记.rst
+
+    前后端/minor_issues.rst
+
+    毒鸡汤小句子/小句子.rst
+
+    git学习记录/git学习记录.rst
+
+
+
+
+

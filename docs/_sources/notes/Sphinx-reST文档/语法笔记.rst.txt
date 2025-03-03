@@ -29,8 +29,8 @@ reStructuredText语法笔记
 
 可以选择这两种实现方式：
 
-使用 ``::`` 将文本块转换为代码块，保留源文本格式
-================================================
++使用 ``::`` 将文本块转换为代码块，保留源文本格式
+=================================================
 
 .. code-block:: rst
     
@@ -56,8 +56,8 @@ This is a normal text paragraph. The next paragraph is a code sample::
 
 This is a normal text paragraph again.
 
-不使用 ``::`` 将文本块作为普通段落处理
-======================================
++不使用 ``::`` 将文本块作为普通段落处理
+=======================================
 
 .. code-block:: rst
 
@@ -82,6 +82,59 @@ This is a normal text paragraph. The next paragraph is a code sample
     It can span multiple lines.
 
 This is a normal text paragraph again.
+
+
+
+插入图片
+*************
+
+行间图片：
+===========
+使用image指令插入行内图片，其格式为（仅常用参数）：
+
+
+.. code-block:: rst
+
+    .. image:: [相对路径/]icon.png
+        :alt: [图标名称]
+        :width: [强制指定宽度](24px/50%/...)
+        :height: [强制指定高度](24px/50%/...)
+        :align: [文中对齐方式]("left", "center", "right".)
+        :target: [图片的点击链接](_blank / https://example.com)
+
+示例：
+
+代码示例：
+
+.. code-block:: rst
+
+    这是第一段文字，将在后面插入一个剧中的图片：
+
+    .. image:: 语法笔记-img/B站图标示例.png
+        :alt: 测试图片-链接到B站
+        :height: 50px
+        :align: center
+        :target: https://www.bilibili.com/
+
+    以上是示例图片，到本行本示例结束。
+
+
+渲染效果：
+
+这是第一段文字，将在后面插入一个剧中的图片：
+
+.. image:: 语法笔记-img/B站图标示例.png
+    :alt: 测试图片-链接到B站
+    :height: 50px
+    :align: center
+    :target: https://www.bilibili.com/
+
+以上是示例图片，到本行本示例结束。
+
+
+行内图片：
+===========
+
 
 
 
