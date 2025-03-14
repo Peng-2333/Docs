@@ -1,6 +1,7 @@
 笔记
 ====
 
+记录一些遇到的小问题。
 笔记部分可能仅仅节选关键节点，不一定有较全面的记录。
 
 .. :numbered: 
@@ -11,8 +12,7 @@
     :glob:
     :includehidden:
 
-    Sphinx-reST文档/环境安装笔记.rst
-    Sphinx-reST文档/语法笔记.rst
+    Sphinx-reST文档/Sphinx-reST.rst
 
     前后端/minor_issues.rst
 
