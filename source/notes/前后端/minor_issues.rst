@@ -39,7 +39,7 @@
 
 
 实际现在使用的make.bat文件（添加了些许注释）
-
+以下脚本中添加了自动创建 `.nojekyll` 文件的命令。
 
 .. code-block:: batch
 
