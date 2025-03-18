@@ -19,10 +19,11 @@ git学习记录
 
 
 GitHub Desktop部分操作
-#######################
+**************************
 
 
-GitHub支持修改的部分提交commit |inline-icon| ask客户购房的人  |inline-icon| 
+GitHub支持修改的部分提交commit |inline-icon| askewsgnvvbnbnghjghjmn  |inline-icon| 
+
 
 .. |inline-icon| image:: img/git部分选择提交.png
 
