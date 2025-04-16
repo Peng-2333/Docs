@@ -254,18 +254,86 @@
         <article role="main" id="furo-main-content">
           <section id="git">
 <h1>git学习记录<a class="headerlink" href="#git" title="Link to this heading">¶</a></h1>
-<p>记录一点初学git的没记住的知识点，写了就是学到了。</p>
+<p>记录一点初学git的没记住的知识点。虽然脑子没记住，但是写了就是学到了。
+（部分简单的笔记就不添加图片了）</p>
+<blockquote>
+<div><p>该部分对大家应该没什么帮助，多半是作为笔记简单记录一点。</p>
+</div></blockquote>
 <hr class="docutils" />
 <p>目录</p>
 <nav class="contents this-will-duplicate-information-and-it-is-still-useful-here local" id="id1">
 <ul class="simple">
-<li><p><a class="reference internal" href="#github-desktop" id="id2">GitHub Desktop部分操作</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id5">git的四个分区</a></p></li>
+<li><p><a class="reference internal" href="#github-desktop" id="id6">GitHub Desktop 软件进阶操作</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id7">1. 部分提交</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id8">2. 放弃更改</a></p></li>
+<li><p><a class="reference internal" href="#git-stash" id="id9">3. git stash</a></p></li>
+<li><p><a class="reference internal" href="#git-reset" id="id10">4. 撤回提交 (git reset)</a></p></li>
+<li><p><a class="reference internal" href="#git-revert" id="id11">5. git revert</a></p></li>
+<li><p><a class="reference internal" href="#amend-commit" id="id12">6. Amend commit</a></p></li>
+<li><p><a class="reference internal" href="#tag" id="id13">7. tag</a></p></li>
+</ul>
+</li>
 </ul>
 </nav>
 <hr class="docutils" />
+<section id="id2">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">git的四个分区</a><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Working Directory  工作区</p></li>
+<li><p>Staging/Index  暂存区</p></li>
+<li><p>Local Repository  本地仓库</p></li>
+<li><p>Remote Repository  远程仓库</p></li>
+</ol>
+</section>
 <section id="github-desktop">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">GitHub Desktop部分操作</a><a class="headerlink" href="#github-desktop" title="Link to this heading">¶</a></h2>
-<p>GitHub支持修改的部分提交commit <img alt="inline-icon" src="../../_images/git%E9%83%A8%E5%88%86%E9%80%89%E6%8B%A9%E6%8F%90%E4%BA%A4.png" /> askewsgnvvbnbnghjghjmn  <img alt="inline-icon" src="../../_images/git%E9%83%A8%E5%88%86%E9%80%89%E6%8B%A9%E6%8F%90%E4%BA%A4.png" /></p>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">GitHub Desktop 软件进阶操作</a><a class="headerlink" href="#github-desktop" title="Link to this heading">¶</a></h2>
+<section id="id3">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">1. 部分提交</a><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>通过勾选软件界面文件修改预览部分前面的对勾，可以选择仅提交部分改动或者取消掉部分改动。</p>
+<p>被取消的部分提交改动之后可以接着提交一个新的提交。</p>
+<p>适用于分为两个功能单独提交。</p>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">2. 放弃更改</a><a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>通过在文件上右键选择 <code class="docutils literal notranslate"><span class="pre">Discard</span> <span class="pre">changes...</span></code> 按钮将放弃文件的更改，</p>
+<img alt="放弃更改按钮位置" class="align-center" src="../../_images/%E6%94%BE%E5%BC%83%E6%9B%B4%E6%94%B9%E6%8C%89%E9%92%AE%E4%BD%8D%E7%BD%AEQQ20250416-225503.png" />
+<p>文件将被还原至本地分支（本地仓库）的存储内容。同时该修改过的文件会被放至回收站中。</p>
+</section>
+<section id="git-stash">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">3. git stash</a><a class="headerlink" href="#git-stash" title="Link to this heading">¶</a></h3>
+<p>可以使用此功能将当前修改暂时存储起来，进而可以切换其他分支进行修改。</p>
+<img alt="存储分支操作" class="align-center" src="../../_images/QQ20250416-230357%E5%AD%98%E5%82%A8%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C.png" />
+<img alt="撤回操作" class="align-center" src="../../_images/QQ20250416-230609%E6%81%A2%E5%A4%8D%E6%93%8D%E4%BD%9C.png" />
+<p>不过这里不能是同一个文件修改后合并。当然正常工程中是需要在main分支上新开一个分支进行修改。如果遇到原分支有改动需求，也是在另一个分支上操作，并不能出现这种修改到同一个文件的情况。</p>
+<p>GitHub desktop软件仅能存储一次，据说命令行可以存储多次分支。</p>
+</section>
+<section id="git-reset">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">4. 撤回提交 (git reset)</a><a class="headerlink" href="#git-reset" title="Link to this heading">¶</a></h3>
+<img alt="撤回操作" class="align-center" src="../../_images/QQ20250416-231749%E6%92%A4%E9%94%80%E5%B7%B2%E7%BB%8Fcommit%E7%9A%84%E6%94%B9%E5%8A%A8.png" />
+<p>这个撤回改动，仅仅对git仓库管理文件起作用，实际工程文件的修改还是存在的。</p>
+<p>如果是推送到远端的代码，就不能再Reset了，这个按钮会变灰。但是可以使用命令行进行操作。</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--mix</span> <span class="pre">xxxxxxxxxxx</span></code>  进行复位，后跟提交的ID（git log命令显示的文件中获取）</p>
+<p>因为使用这个之后，远程有一次提交，本地没有，所以Desktop会有一个同步箭头，这里使用强制推送命令
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-f</span></code> 将本地的更改记录强制推送到远程。（高危操作）</p>
+</section>
+<section id="git-revert">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">5. git revert</a><a class="headerlink" href="#git-revert" title="Link to this heading">¶</a></h3>
+<p>使用revert功能，生成一个反向的修改，将仓库（或远程仓库）的提交恢复到之前的一个版本。
+这样整个修改记录都在，对于仓库来说，本次提交是用户进行了文件修改，只是改过后的结果和之前的某次相同。</p>
+<p>该操作比较安全，推荐使用.</p>
+</section>
+<section id="amend-commit">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">6. Amend commit</a><a class="headerlink" href="#amend-commit" title="Link to this heading">¶</a></h3>
+<p>可以使用该功能将最新一次的commit重新修改。
+可以修改提交的标题，描述或者代码文件。</p>
+<p>已经推送到远端的代码使用此功能后需要使用强制推送到远端，高危操作。</p>
+</section>
+<section id="tag">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">7. tag</a><a class="headerlink" href="#tag" title="Link to this heading">¶</a></h3>
+<p>可以将提交记录中的某一次提交进行tag，一般用于版本发布时，tag名称可以填入版本号等。</p>
+</section>
 </section>
 </section>
 
@@ -317,7 +385,17 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">git学习记录</a><ul>
-<li><a class="reference internal" href="#github-desktop">GitHub Desktop部分操作</a></li>
+<li><a class="reference internal" href="#id2">git的四个分区</a></li>
+<li><a class="reference internal" href="#github-desktop">GitHub Desktop 软件进阶操作</a><ul>
+<li><a class="reference internal" href="#id3">1. 部分提交</a></li>
+<li><a class="reference internal" href="#id4">2. 放弃更改</a></li>
+<li><a class="reference internal" href="#git-stash">3. git stash</a></li>
+<li><a class="reference internal" href="#git-reset">4. 撤回提交 (git reset)</a></li>
+<li><a class="reference internal" href="#git-revert">5. git revert</a></li>
+<li><a class="reference internal" href="#amend-commit">6. Amend commit</a></li>
+<li><a class="reference internal" href="#tag">7. tag</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
